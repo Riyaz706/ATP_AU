@@ -3,7 +3,7 @@
 // Test data:
 const temperatures = [32, 35, 28, 40, 38, 30, 42];
 
-// Tasks:
+// Tasks
 
 //     1. filter() temperatures above 35
 let result1 = temperatures.filter(function (temp) {
