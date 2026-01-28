@@ -10,7 +10,7 @@
 //modern syntax to consume promise
 
 async function getData() {
-   //make api call and get respone
+   //make api call and get response
    let res = await fetch('https://jsonplaceholder.typicode.com/posts')
    //extract json data from response
    let data = await res.json();
