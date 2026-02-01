@@ -1,0 +1,34 @@
+//read all users
+GET http://localhost:3000/products-API/products 
+
+
+//create new user
+###
+POST http://localhost:3000/products-API/products
+Content-Type: application/json
+
+{
+   "pid": "P1001",
+   "productName": "Smartphone",
+   "price": 699
+}
+
+###
+//read user by id
+GET http://localhost:3000/products-API/products/697dd32f81da876cd6def4c4
+
+
+###
+//update user by id
+PUT http://localhost:3000/products-API/products/697dd32f81da876cd6def4c4
+Content-Type: application/json
+
+{
+   "pid": "P1001",
+   "productName": "Smartphone Updated",
+   "price": 799
+
+}
+###
+
+DELETE http://localhost:3000/products-API/products/697dd32f81da876cd6def4c4
