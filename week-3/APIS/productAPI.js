@@ -1,13 +1,15 @@
 import express from 'express'
 import { ProductModel } from '../models/productmodel.js' 
-export const productApp=express.Router()
+export const   productApp=express.Router()
 
 //Create Products
 productApp.post('/products',async (req,res)=>{
     let newProduct = req.body
     let newProductDoc= new ProductModel(newProduct)
-    await ProductModel.insertOne(newProductDoc)
-    res.status(201).json({message:"Product added"})
+    await ProductModel.create(newProductDoc)
+    res.status(201).json({ message: "Product added" })
+    
+
 })
 
 //Read Products

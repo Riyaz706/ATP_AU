@@ -1,13 +1,14 @@
-import { Schema,model } from "mongoose"
+import { Schema, model } from "mongoose"
 
 const productSchema = new Schema({
     pid:{
-        type:String,
-        required:[true,"Product Id is required"]
+        type:String, 
+        required: [true, "Product Id is required"],
+        unique:true
     },
     productName:{
         type:String,
-        required:[true,"Product name is required"],
+        required: [true, "Product name is required"],
     },
     price:{
         type:Number,

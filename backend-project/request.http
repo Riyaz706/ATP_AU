@@ -1,0 +1,23 @@
+###
+
+POST http://localhost:3000/product-API/products
+Content-Type: application/json
+
+{
+   "productName":"TV",
+   "price":30000,
+   "brand":"sam"
+
+}
+
+###
+
+POST http://localhost:3000/user-API/users
+Content-Type: application/json
+
+{
+  "name":"ravi",
+  "email":"23@gmail.com",
+  "password":"johhn",
+  "cart":[]
+}

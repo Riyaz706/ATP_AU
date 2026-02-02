@@ -1,34 +1,43 @@
-//read all users
-GET http://localhost:3000/products-API/products 
-
-
-//create new user
 ###
-POST http://localhost:3000/products-API/products
+
+GET http://127.0.0.1:3000/users-API/users
+
+###
+
+POST  http://127.0.0.1:3000/users-API/users
 Content-Type: application/json
 
 {
-   "pid": "P1001",
-   "productName": "Smartphone",
-   "price": 699
+    "username": "John Doe",
+    "password": "password123",
+    "age": 30
 }
 
 ###
-//read user by id
-GET http://localhost:3000/products-API/products/697dd32f81da876cd6def4c4
 
-
-###
-//update user by id
-PUT http://localhost:3000/products-API/products/697dd32f81da876cd6def4c4
+PUT http://127.0.0.1:3000/users-API/users/698042727517de348755f7b8
 Content-Type: application/json
 
 {
-   "pid": "P1001",
-   "productName": "Smartphone Updated",
-   "price": 799
-
+  "username":"updated name",
+  "password":"newpassword123",
+  "age":35
 }
+
 ###
 
-DELETE http://localhost:3000/products-API/products/697dd32f81da876cd6def4c4
+DELETE http://localhost:3000/users-API/users/697dbd2932961b76c911a70a
+
+###
+POST http://localhost:3000/users-API/auth
+Content-Type: application/json  
+
+{
+    "username": "John Doe",
+    "password": "password123"
+}
+
+###Req for protected route
+
+###
+GET http://localhost:3000/users-API/test
