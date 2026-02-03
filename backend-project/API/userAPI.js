@@ -2,6 +2,7 @@ import express from 'express';
 import { hash } from 'bcryptjs';
 import { UserModel } from '../modules/UserModel.js';
 import { ProductModel } from '../modules/ProductModule.js';
+import { cartModel } from '../modules/cartModel.js';
 
 // Create a new Express router for user-related APIs
 export const userAPI = express.Router();
@@ -263,3 +264,6 @@ userAPI.delete('/user-cart/user-id/:id/product-id/:pid', async (req, res) => {
       });
    }
 });
+
+
+
