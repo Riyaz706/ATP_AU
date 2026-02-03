@@ -61,7 +61,7 @@ userAPI.put('/users/:id', async (req, res) => {
       const hashedPassword = await hash(newUser.password, 12);
       newUser.password = hashedPassword;
 
-      // This creates a NEW user document instead of updating
+      // ❌ This creates a NEW user document instead of updating
       const newUserDoc = new UserModel(newUser);
 
       // Save new user document

@@ -4,9 +4,15 @@ import { Schema, model } from "mongoose";
 const cartSchema = new Schema({
    product: {
       type: Schema.Types.ObjectId,
-      ref:'product'
+      ref: 'product'
    },
+   quantity: {
+      type: Number,
+      default: 1,
+      min: 1
+   }
 });
+
 const userSchema = new Schema({
    name: {
       type: String,
@@ -22,9 +28,9 @@ const userSchema = new Schema({
       required: [true, "password is rrequired"],
    },
    cart: {
-      type: [cartSchema],   
+      type: [cartSchema],
    },
 
 
 });
-export const UserModel=model("user",userSchema)
+export const UserModel = model("user", userSchema)
