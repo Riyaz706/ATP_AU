@@ -21,3 +21,6 @@
 
 9. design api's for all resources
 
+Registrtion and Login
+
+10.Registration and Login in common
