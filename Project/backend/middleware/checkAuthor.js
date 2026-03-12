@@ -2,27 +2,20 @@ import jwt from 'jsonwebtoken';
 import { UserModel } from '../models/UserModel.js';
 
 export const checkAuthor = async (req, res, next) => {
-    //get author id from decoded token (set by verifyToken middleware) or from request
-    let authorId = req.user?.id || req.body?.author || req.params?.authorId;
+    console.log("checkAuthor - req.user:", req.user);
+    // Role verification strictly from token
+    if (req.user?.role !== "AUTHOR") {
+        return res.status(403).json({ message: "Forbidden. Author access required. Current role: " + req.user?.role });
+    }
 
-    //check if authorId exists
-    if (!authorId) {
-        return res.status(401).json({ message: "author id not found" })
-    }
-    //verify author
-    let authorObj = await UserModel.findById(authorId);
-    // if author not found
+    // Check if the author exists and is active
+    let authorObj = await UserModel.findById(req.user.id);
     if (!authorObj) {
-        return res.status(401).json({ message: "author not found" })
+        return res.status(403).json({ message: "Forbidden. Author account not found." });
     }
-    // if author is not author
-    if (authorObj.role !== "AUTHOR") {
-        return res.status(403).json({ message: "user is  not authorized" })
-    }
-    // if author is not active
     if (!authorObj.isActive) {
-        return res.status(403).json({ message: "author account is not active" })
+        return res.status(403).json({ message: "Forbidden. Author account is inactive." });
     }
-    //forward request to nect
+
     next();
 };

@@ -3,19 +3,19 @@ import { Schema, model } from "mongoose";
 const userSchema = new Schema({
     firstName: {
         type: String,
-        requires: [true, "First name is required"]
+        required: [true, "First name is required"]
     },
     lastName: {
         type: String,
     },
     email: {
         type: String,
-        requires: [true, "Email is required"],
-        unique: [true,"Email already exists"]
+        required: [true, "Email is required"],
+        unique: true
     },
     password: {
         type: String,
-        requires: [true, "Password is required"]
+        required: [true, "Password is required"]
     },
     profileImageURL: {
         type: String,
@@ -23,14 +23,14 @@ const userSchema = new Schema({
     role: {
         type: String,
         enum: ["USER", "ADMIN", "AUTHOR"],
-        requirs: [true, "{Value} is not valid"]
+        required: [true, "Role is required"]
     },
     isActive: {
         type: Boolean,
         default: true
     },
 
-}, {               
+}, {
     timestamps: true,
     strict: "throw",
     versionKey: false

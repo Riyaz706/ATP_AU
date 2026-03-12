@@ -21,15 +21,26 @@ Content-Type: application/json
     "password": "password",
     "role": "AUTHOR"
 }
+
+### TO REGISTER ADMIN
+POST http://localhost:4000/admin-api/admins
+Content-Type: application/json
+
+{
+  "firstName": "System",
+  "lastName": "Admin",
+  "email": "admin@example.com",
+  "password": "adminpassword"
+}
+
 ### TO LOGIN AUTHOR
 POST http://localhost:4000/common-api/login
 Content-Type: application/json
 
 {
 
-    "email": "1234",
-    "password": "password",
-    "role": "AUTHOR"
+    "email": "12345",
+    "password": "password"
 }
 
 ### TO LOGIN USER
@@ -38,22 +49,21 @@ Content-Type: application/json
 
 {
     "email": "3@gmail.com",
-    "password": "password",
-    "role": "USER"
+    "password": "password"
 }
 
 ### TO CREATE ARTICLE
 POST http://localhost:4000/author-api/articles
 Content-Type: application/json
 
-{   "author":"698974f06bccfa6e29e9d1f1",
-    "title": "Article 2",
+{   "author":"69afde25c70deb683a0eb6af",
+    "title": "Art  icle",
     "category":"Technology",
-    "content": "Content 1"
+    "content": "Content"
 }
     
 ### TO GET ARTICLE
-GET http://localhost:4000/author-api/articles/698974f06bccfa6e29e9d1f1
+GET http://localhost:4000/author-api/articles/69afde25c70deb683a0eb6af
 
 ###
 
@@ -70,11 +80,11 @@ Content-Type: application/json
 }
 
 ### TO DELETE ARTICLE
-DELETE http://localhost:4000/author-api/articles/698999a8bc27cca2209e1acb
+PATCH  http://localhost:4000/author-api/articles/69ae87ca18acc73f4994fb84
 Content-Type: application/json
 
 {
-    "author":"698974f06bccfa6e29e9d1f1"
+    "author":"69ae879b18acc73f4994fb7f"
 }
 
 ### TO LOGOUT 
@@ -87,7 +97,7 @@ GET http://localhost:4000/user-api/read-articles
 
 ### To read all artices
 
-GET http://localhost:4000/admin-api/articles/698974f06bccfa6e29e9d1f1
+GET http://localhost:4000/admin-api/articles/69ae879b18acc73f4994fb7f
 
 ###To block the user
 
@@ -107,22 +117,25 @@ Content-Type: application/json
     "userId": "698974f06bccfa6e29e9d1f1"
 }
 
-
-
 ### Change the password
-
 PUT http://localhost:4000/common-api/change-password
 Content-Type: application/json
 
 {
-    "userId":"69897769f8c3be24149183da",
-    "currentPassword":"password",
+    "userId":"69ae879b18acc73f4994fb7f",
+    "currentPassword":"111",
     "newPassword":"111"
 }
 
 
+### TO ADD COMMENT
+PUT http://localhost:4000/user-api/articles
+Content-Type: application/json
 
+{
+    "articleId": "69afde25c70deb683a0eb6af",
+    "comment": "Nice"
+}
 
 ### TEST
-
 GET http://localhost:4000/test

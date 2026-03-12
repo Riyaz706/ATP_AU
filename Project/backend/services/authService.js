@@ -27,7 +27,7 @@ export const authenticate = async ({ email, password }) => {
     const user = await UserModel.findOne({ email });
     //if user not found
     if (!user) {
-        const err = new Error('invalid emaail or role');
+        const err = new Error('invalid email or role');
         err.statusCode = 401;
         throw err;
     }
@@ -65,12 +65,8 @@ export const login = async (userCredentials) => {
     //get user obj
     let { email, password, role } = userCredentials;
     //call service
-    let { token, user } = await authenticate([email, password, role]);
+    let { token, user } = await authenticate({ email, password, role });
     //send response
     return { token, user };
 };
-
-
-
-
 

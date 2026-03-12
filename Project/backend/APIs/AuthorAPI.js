@@ -16,16 +16,6 @@ authorRouter.post('/authors', async (req, res) => {
     res.status(201).json({ message: 'author created successfully', payload: newUserObj });
 });
 
-//authenticate author(public)
-authorRouter.post('/authenticate-author', async (req, res) => {
-    //get user obj
-    let userCredentials = req.body;
-    //call service
-    let { token, user } = await login(userCredentials);
-    //send response
-    res.cookie('token', token, { httpOnly: true, sameSite: 'lax', secure: false });
-    res.status(200).json({ message: 'author logged in successfully', payload: user });
-});
 
 //create article(protected)
 authorRouter.post('/articles', verifyToken, checkAuthor, async (req, res) => {
@@ -53,7 +43,7 @@ authorRouter.get('/articles/:authorId', verifyToken, checkAuthor, async (req, re
     //     return res.status(404).json({ message: "author not found" })
     // }
     // //get all articles of author
-    let articles = await ArticleModel.find({ author: authorId, isArticleActive: true }).populate("author.user", "firstName", "lastName", "email");
+    let articles = await ArticleModel.find({ author: authorId, isArticleActive: true }).populate("author", "firstName lastName email");
     //send response
     res.status(200).json({ message: 'articles fetched successfully', payload: articles });
 });
@@ -68,7 +58,10 @@ authorRouter.put('/articles', verifyToken, checkAuthor, async (req, res) => {
     if (!result) {
         return res.status(404).json({ message: "article not found" })
     }
-    //check the article is published by the author received from client
+    //check if the logged in author is the owner of the article
+    if (result.author.toString() !== req.user.id) {
+        return res.status(403).json({ message: "Forbidden. You can only edit your own articles." });
+    }
 
     //update article document
     let updatedArticle = await ArticleModel.findByIdAndUpdate(articleId,
@@ -82,13 +75,17 @@ authorRouter.put('/articles', verifyToken, checkAuthor, async (req, res) => {
 });
 
 //delete(soft) article(protected)
-authorRouter.delete('/articles/:articleId', verifyToken, checkAuthor, async (req, res) => {
+authorRouter.patch('/articles/:articleId', verifyToken, checkAuthor, async (req, res) => {
     //find article
     let articleId = req.params.articleId;
     //check article is exist
     let articleObj = await ArticleModel.findById(articleId);
     if (!articleObj) {
         return res.status(404).json({ message: "article not found" })
+    }
+    //check if the logged in author is the owner of the article
+    if (articleObj.author.toString() !== req.user.id) {
+        return res.status(403).json({ message: "Forbidden. You can only delete your own articles." });
     }
     //delete article
     let result = await ArticleModel.findByIdAndUpdate(articleId,
@@ -101,16 +98,3 @@ authorRouter.delete('/articles/:articleId', verifyToken, checkAuthor, async (req
     res.status(201).json({ message: 'article deleted successfully', payload: result });
 });
 
-//logout for user,author and admin
-authorRouter.post('/logout', (req, res) => {
-    //clear the cookie  
-    res.clearCookie('token',
-        {
-            httpOnly: true,
-            sameSite: 'lax',
-            secure: false
-        }
-    );
-    //send response
-    res.status(200).json({ message: 'author logged out successfully' });
-});

@@ -14,22 +14,31 @@ userRouter.post('/users', async (req, res) => {
     //send response
     res.status(201).json({ message: 'user created successfully', payload: newUserObj });
 });
-//authenticate user
-userRouter.post('/authenticate-user', async (req, res) => {
-    //get user obj
-    let userCredentials = req.body;
-    //call service
-    let { token, user } = await login(userCredentials);
-    //send response
-    res.cookie('token', token, { httpOnly: true, sameSite: 'lax', secure: false });
-    res.status(200).json({ message: 'user logged in successfully', payload: user });
-});
 
-//read article of user
-userRouter.get('/read-articles', verifyToken, checkUser, async (req, res) => {
+
+//read article of user (Available to all authenticated roles)
+userRouter.get('/read-articles', verifyToken, async (req, res) => {
     //get all active articles
     let articles = await ArticleModel.find({ isArticleActive: true }).populate("author", "firstName lastName email");
     res.status(200).json({ message: 'articles fetched successfully', payload: articles });
 })
 
 //add comment to an article
+userRouter.put("/articles", verifyToken, checkUser, async (req, res) => {
+
+    //get comment obj 
+    const { articleId, comment } = req.body;
+    //get user id from req.user (attached by verifyToken)
+    const userId = req.user.id;
+    //add comment to the article
+    let result = await ArticleModel.findByIdAndUpdate(articleId,
+        {
+            $push: {
+                comments: { user: userId, comment: comment }
+            }
+        },
+        { new: true }
+    );
+    //send response
+    res.status(200).json({ message: "comment added successfully", payload: result });
+});

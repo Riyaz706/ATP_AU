@@ -1,11 +1,25 @@
 import exp from 'express'
 import { UserModel } from '../models/UserModel.js'
 import { ArticleModel } from '../models/ArticleModel.js'
+import { register } from '../services/authService.js';
 import { verifyToken } from '../middleware/verifyToken.js';
+import { checkAdmin } from '../middleware/checkAdmin.js';
 export const adminRouter = exp.Router()
 
+//Register Admin(public)
+adminRouter.post('/admins', async (req, res) => {
+    //get user obj
+    let userObj = req.body;
+    //call service
+    const newUserObj = await register({ ...userObj, role: "ADMIN" });
+    //send response
+    res.status(201).json({ message: 'admin created successfully', payload: newUserObj });
+});
+
+adminRouter.use(verifyToken, checkAdmin);
+
 //read all article of admin
-adminRouter.get("/articles/:authorId", verifyToken, async (req, res) => {
+adminRouter.get("/articles/:authorId", async (req, res) => {
     let authorId = req.params.authorId;
 
     // Check if the author exists and is active
@@ -21,7 +35,7 @@ adminRouter.get("/articles/:authorId", verifyToken, async (req, res) => {
     res.status(200).json({ message: 'article fetched successfully', payload: articles })
 })
 //block user
-adminRouter.put("/block-user", verifyToken, async (req, res) => {
+adminRouter.put("/block-user", async (req, res) => {
     let { userId } = req.body;
     let user = await UserModel.findById(userId);
     if (!user) {
@@ -32,7 +46,7 @@ adminRouter.put("/block-user", verifyToken, async (req, res) => {
     res.status(200).json({ message: 'User blocked successfully' })
 })
 //unblock user
-adminRouter.put("/unblock-user", verifyToken, async (req, res) => {
+adminRouter.put("/unblock-user", async (req, res) => {
     let { userId } = req.body;
     let user = await UserModel.findById(userId);
     if (!user) {

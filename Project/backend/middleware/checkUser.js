@@ -4,29 +4,16 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 export const checkUser = async (req, res, next) => {
-    //get user id from decoded token (set by verifyToken middleware)
-    let userId = req.user?.id || req.body?.user || req.params?.userId;
-
-    //check if userId exists
-    if (!userId) {
-        return res.status(401).json({ message: "user id not found" })
+    // Role verification strictly from token
+    if (req.user?.role !== "USER") {
+        return res.status(403).json({ message: "Forbidden. User access required." });
     }
 
-    //verify user
-    let userObj = await UserModel.findById(userId);
-    // if user not found
-    
-    if (!userObj) {
-        return res.status(401).json({ message: "user not found" })
+    // Check if the user exists and is active
+    let userObj = await UserModel.findById(req.user.id);
+    if (!userObj || !userObj.isActive) {
+        return res.status(403).json({ message: "Forbidden. User account is inactive or not found." });
     }
-    // if user is not user
-    if (userObj.role !== "USER") {
-        return res.status(403).json({ message: "user is not authorized" })
-    }
-    // if user is not active
-    if (!userObj.isActive) {
-        return res.status(403).json({ message: "user account is not active" })
-    }
-    //forward request to next
+
     next();
 }

@@ -40,7 +40,7 @@ const articleSchema = new Schema({
     }
 },
     {
-        timeStamp: true,
+        timestamps: true,
         versionKey: false,
         strict: "throw"
     });
