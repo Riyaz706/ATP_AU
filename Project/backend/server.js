@@ -1,7 +1,7 @@
 import express from 'express'
 import { connect } from 'mongoose'
 import { config } from 'dotenv'
-import { userRouter } from './APIs/userAPI.js'
+import { userRouter } from './APIs/UserAPI.js'
 import { authorRouter } from './APIs/AuthorAPI.js'
 import { adminRouter } from './APIs/AdminAPI.js'
 import cookieParser from 'cookie-parser'
@@ -12,8 +12,22 @@ import cors from 'cors'
 config()//process .env
 
 const app = express()
+
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    /\.vercel\.app$/,   // any Vercel deployment
+    /\.onrender\.com$/  // any Render deployment
+]
+
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true) // allow server-to-server / curl
+        const allowed = allowedOrigins.some(o =>
+            typeof o === 'string' ? o === origin : o.test(origin)
+        )
+        allowed ? callback(null, true) : callback(new Error(`CORS blocked: ${origin}`))
+    },
     credentials: true
 }))
 

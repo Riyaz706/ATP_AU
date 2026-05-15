@@ -5,6 +5,7 @@ import { pageWrapper, inputClass, submitBtn, loadingClass, emptyStateClass, arti
 import { authStore } from '../store/authStore';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
+import ReactMarkdown from 'react-markdown';
 
 function ArticleDetail() {
   const { id } = useParams();
@@ -161,8 +162,16 @@ function ArticleDetail() {
         </div>
 
         {/* Content */}
-        <div className={articleBody}>
-          {content}
+        <div className={`${articleBody} prose prose-neutral max-w-none
+          prose-headings:font-bold prose-headings:text-on-surface
+          prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
+          prose-p:leading-relaxed prose-p:mb-4
+          prose-strong:text-on-surface
+          prose-code:bg-surface-container prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono
+          prose-pre:bg-surface-container prose-pre:rounded-xl prose-pre:p-4 prose-pre:overflow-x-auto
+          prose-ul:list-disc prose-ul:pl-6 prose-li:mb-1
+        `}>
+          <ReactMarkdown>{content}</ReactMarkdown>
         </div>
 
         {/* Comments Section */}

@@ -14,8 +14,8 @@ commonRouter.post("/login", async (req, res) => {
     //save response token as httpOly cookie
     res.cookie('token', token, {
         httpOnly: true,
-        sameSite: 'lax',
-        secure: false
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        secure: process.env.NODE_ENV === 'production'
     });
 
     //send response
@@ -26,13 +26,11 @@ commonRouter.post("/login", async (req, res) => {
 //logout
 commonRouter.get("/logout", async (req, res) => {
     // clear cookie
-    res.clearCookie('token',
-        {
-            httpOnly: true,
-            sameSite: 'lax',
-            secure: false
-        }
-    );
+    res.clearCookie('token', {
+        httpOnly: true,
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        secure: process.env.NODE_ENV === 'production'
+    });
     //send response
     res.status(200).json({ message: "User logged out successfully" });
 });
