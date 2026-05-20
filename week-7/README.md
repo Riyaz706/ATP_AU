@@ -1,43 +1,41 @@
-# Week 7 — React Applications
+# React Fundamentals
 
-Three React projects covering routing, state management, and API integration.
+This directory contains React applications built during Week 7, focusing on core React APIs: state management, lifecycle hooks (`useEffect`), routing (`react-router`), and REST API integration.
 
-## 📂 Projects
+## Projects
 
-### 1. 🛍️ Product Manager
-An e-commerce-style product listing app using FakeStore API.
+### 1. Product Manager
 
-- Browse products with search and category filter
-- Product detail view
-- Navigate from Home hero section
+An e-commerce product manager application communicating with the FakeStore API. It includes search functionalities and item classification categorization.
 
-```bash
-cd product_manager
-npm install
-npm run dev
-```
+- Setup and start:
+  ```bash
+  cd product_manager
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [Product Manager Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-7/product_manager/README.md)
 
-### 2. 🌍 Country Explorer
-Explore countries using the REST Countries API.
+### 2. Country Explorer
 
-```bash
-cd COUNTRY-EXPLORER
-npm install
-npm run dev
-```
+A client application integrated with the REST Countries API. It enables users to browse country cards, review demographic details, and search/filter by geographical regions.
 
-### 3. ✅ Task Manager
-A task management app with add, complete, and delete functionality.
+- Setup and start:
+  ```bash
+  cd COUNTRY-EXPLORER
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [Country Explorer Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-7/COUNTRY-EXPLORER/README.md)
 
-```bash
-cd task-manager
-npm install
-npm run dev
-```
+### 3. Task Manager
 
-## 🛠️ Tech Stack
-- React 18
-- React Router v6
-- Vite
-- Tailwind CSS
-- FakeStore API / REST Countries API
+A reactive client dashboard that implements adding, deactivating, and deleting user tasks. It showcases lifting state up and components communications.
+
+- Setup and start:
+  ```bash
+  cd task-manager
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [Task Manager Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-7/task-manager/README.md)

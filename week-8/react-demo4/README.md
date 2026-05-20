@@ -1,16 +1,50 @@
-# React + Vite
+# Zustand State Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application demonstrating global, centralized state management using Zustand. It showcases how to design a state store, define modifier actions, and consume state variables within functional React components without Context providers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Centralized state store managing numerical values (`x`, `y`) and user profiles (`name`, `age`).
+- Action dispatcher mappings to increment, decrement, offset, or rewrite state items.
+- Multi-component subscription: Shows how changes to state variables dynamically re-render subscribing elements without refreshing other components.
 
-## React Compiler
+## State Store Schema (`store/TestStore.js`)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### State Fields
+- `x`: Number (initial value: `10`)
+- `y`: Number (initial value: `20`)
+- `user`: Object (`{ name: 'Riyaz', age: 25 }`)
 
-## Expanding the ESLint configuration
+### Store Actions
+- `incrementX()`: Increments `x` by `1`.
+- `decrementX()`: Decrements `x` by `1`.
+- `incrementY()`: Increments `y` by `1`.
+- `incrementXByValue(value)`: Offsets `x` by a specific value input.
+- `updateUser(name, age)`: Re-assigns the properties of the `user` state object.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+- `store/TestStore.js`: The Zustand store declaration using the `create` API.
+- `components/`: UI components.
+  - `A.jsx`: Consumes and displays `x` and `y` from the store and binds trigger buttons to modify states.
+  - `B.jsx`: Subscribes to the `user` object details and contains input forms to trigger `updateUser` actions.
+  - `C.jsx`: Provides an alternative view consuming `x` state to illustrate reactive updates across components.
+- `src/App.jsx`: Main entry mounting the components side-by-side.
+
+## Installation & Setup
+
+1. Navigate to the project directory:
+   ```bash
+   cd week-8/react-demo4
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Launch development server:
+   ```bash
+   npm run dev
+   ```
+   The application runs on `http://localhost:5173`.

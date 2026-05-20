@@ -1,32 +1,53 @@
-# Week 8 — React Advanced & REST API
+# Advanced React Demos and State Management
 
-Advanced React patterns and a full User REST API backend.
+This directory contains advanced React demonstrations developed during Week 8. The exercises cover state hoisting, nested routing configuration, and centralized state management using Zustand.
 
-## 📂 Projects
+## Projects and Demos
 
-### 1. React Demos (react-demo1 to react-demo4)
-Progressive React demos covering:
-- Component lifecycle
-- Hooks (useState, useEffect, useContext)
-- Custom hooks
-- Context API
+### 1. React Demo 1: Core Hooks and State Hoisting
 
-```bash
-cd react-demo1   # or demo2, demo3, demo4
-npm install
-npm run dev
-```
+A basic demo of tasks management. It covers state lifting, `useState` operations, form actions, and rendering loops.
 
-### 2. User REST API
-A Node.js/Express REST API for user management.
+- Setup and start:
+  ```bash
+  cd react-demo1
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [React Demo 1 Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-8/react-demo1/README.md)
 
-```bash
-cd user-rest-api
-npm install
-node server.js
-```
+### 2. React Demo 2: Nested Routing
 
-## 🛠️ Tech Stack
-- React 18 + Vite
-- Node.js + Express
-- MongoDB (for REST API)
+A nested routing showcase application built with React Router. It illustrates layout routing, links, dynamic page renders, and redirect configurations.
+
+- Setup and start:
+  ```bash
+  cd react-demo2/my-project
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [React Demo 2 Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-8/react-demo2/README.md)
+
+### 3. React Demo 3: Product Store Router
+
+A categories browser routing project demonstrating lists and dynamic product detail page views.
+
+- Setup and start:
+  ```bash
+  cd react-demo3/vite-project
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [React Demo 3 Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-8/react-demo3/README.md)
+
+### 4. React Demo 4: Zustand State Management
+
+A state management demonstration illustrating store creation, action dispatcher definitions, and component context connections using Zustand.
+
+- Setup and start:
+  ```bash
+  cd react-demo4
+  npm install
+  npm run dev
+  ```
+- Detailed documentation: [React Demo 4 Documentation](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-8/react-demo4/README.md)

@@ -1,16 +1,40 @@
-# React + Vite
+# React Demo 1: Core Hooks and Hoisted State
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A task management demonstration application that focuses on React state mechanics, parent-to-child communication, and state updates.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dynamic forms managing input state.
+- Task management: listing tasks, counting entries, and adding items.
+- Illustrates state hoisting: tasks array is declared in the root component (`ManageTask`) and passed down along with action dispatch handlers.
+- Side effects demonstration (`SideEffect` using `useEffect` hooks).
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/components/`:
+  - `ManageTask.jsx`: Outer state container managing the tasks array.
+  - `AddTask.jsx`: Handles text input capturing and invokes parent addition handlers.
+  - `TaskList.jsx`: Iterates the list of tasks.
+  - `TaskCount.jsx`: Renders numerical statistics based on the tasks length.
+  - `FormDemo.jsx`: Custom forms demo showcasing raw input bindings.
+  - `StateDemo.jsx` & `StateDemo1.jsx`: Basic `useState` hook counter demonstrations.
+  - `SideEffect.jsx`: Illustrates basic `useEffect` setups.
+- `src/App.jsx`: Main React entry page mounting the layout.
 
-## Expanding the ESLint configuration
+## Installation & Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Navigate to the project directory:
+   ```bash
+   cd week-8/react-demo1
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Launch development server:
+   ```bash
+   npm run dev
+   ```
+   The application runs on `http://localhost:5173`.

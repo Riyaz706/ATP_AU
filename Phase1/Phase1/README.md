@@ -1,16 +1,49 @@
-# React + Vite
+# Tech Gadgets Product Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive single-page React application that serves as a product catalog for premium tech gadgets. It displays a variety of consumer electronics with clean layouts, custom cards, and hover details.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dynamic rendering of product lists from a centralized state array.
+- Clean grid layouts using responsive CSS breakpoints.
+- Indivdual product cards containing images, brand details, price, descriptions, and a responsive CTA button.
+- Built using Vite for optimized asset loading and fast refresh.
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/main.jsx`: Application entry point.
+- `src/App.jsx`: Root component mounting the main product view.
+- `src/components/Products.jsx`: Primary state container. Houses the static product database of 10 items (AirPods Pro, Galaxy Watch 6, MX Master 3S, etc.) and maps them into grid items.
+- `src/components/Product.jsx`: Presentational component representing an individual product card.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Ensure you have Node.js installed, then execute:
+
+```bash
+# Navigate to the project folder if not already there
+cd Phase1/Phase1
+
+# Install dependencies
+npm install
+```
+
+## Running the Project
+
+To run the application locally in development mode:
+
+```bash
+npm run dev
+```
+
+The application will be served at `http://localhost:5173`.
+
+## Build for Production
+
+To generate the optimized production build:
+
+```bash
+npm run build
+```
+
+This creates a `dist/` folder containing static assets ready to be served by any static host.

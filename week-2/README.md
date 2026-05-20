@@ -1,22 +1,28 @@
-# Week 2 — JavaScript Collections & Data Structures
+# JavaScript Collections and Data Structures
 
-Advanced JavaScript topics: collections, object cloning, and a TODO app.
+Advanced JavaScript structures including Maps, Sets, object cloning, modular components, and file-based state operations.
 
-## 📂 Contents
+## Contents
 
-| File/Folder | Description |
-|-------------|-------------|
-| `Data_handson.js` | Hands-on practice with Maps, Sets, and Arrays |
-| `Shallow_Copy.js` | Demonstrates shallow vs deep copy of objects |
-| `Collection_module/` | Modular collection utilities |
-| `TOdo/` | Simple TODO application in JavaScript |
+The assignments and exercise code are located in the `assignements` directory.
 
-## 🛠️ Tech Stack
-- JavaScript (ES6+)
-- Node.js
+| Directory/File | Description |
+|----------------|-------------|
+| `Data_handson.js` | Illustrates key retrieval, uniqueness validation, and iteration patterns using Map and Set structures. |
+| `Shallow_Copy.js` | Highlights the operational differences between deep cloning and shallow cloning of nested objects. |
+| `Collection_module/` | Package demonstrating module exports (`module.exports`) and imports (`require`) to partition utility classes. |
+| `TOdo/` | Command-line interface Todo application utilizing Node.js readline capabilities. |
 
-## ▶️ Run
+## Running the Exercises
 
-```bash
-node assignements/<filename>.js
-```
+Ensure Node.js is installed on your local environment.
+
+1. To run standard scripts:
+   ```bash
+   node assignements/<filename>.js
+   ```
+
+2. To run the modular package or Todo application:
+   ```bash
+   node assignements/TOdo/todo.js
+   ```

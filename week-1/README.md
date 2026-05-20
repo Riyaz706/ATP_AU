@@ -1,23 +1,30 @@
-# Week 1 — JavaScript Fundamentals
+# JavaScript Fundamentals
 
-Introduction to core JavaScript concepts using Node.js.
+Introduction to core JavaScript structures, operations, and algorithmic logic running on Node.js.
 
-## 📂 Assignments
+## Assignments and Exercises
+
+The assignments are located in the `Assignments` directory. They illustrate array operations, functions, scope, and basic data analytics.
 
 | File | Description |
 |------|-------------|
-| `Functions.js` | Basic function declarations and expressions |
-| `Online_Course_name_processor.js` | String manipulation on course names |
-| `Shopping_cart.js` | Cart logic using arrays and objects |
-| `Student_Marks_list.js` | Student marks filtering and sorting |
-| `student_performance_dashboard.js` | Performance analytics using array methods |
+| `Functions.js` | Illustrates function declarations, expressions, anonymous functions, and parameter passing. |
+| `Online_Course_name_processor.js` | Performs text transformations and pattern operations on courses names. |
+| `Shopping_cart.js` | Models cart operations (calculating totals, applying tax rates) using object arrays. |
+| `Student_Marks_list.js` | Filters student marks above target thresholds and sorts arrays. |
+| `student_performance_dashboard.js` | Conducts basic analytics (finding highest mark, lowest mark, average performance) on student datasets. |
 
-## 🛠️ Tech Stack
-- JavaScript (ES6+)
-- Node.js
+## Running the Exercises
 
-## ▶️ Run
+To run any script locally:
 
+1. Ensure Node.js is installed.
+2. From this folder (`week-1`), run:
+   ```bash
+   node Assignments/<filename>.js
+   ```
+
+Example:
 ```bash
-node Assignments/<filename>.js
+node Assignments/Functions.js
 ```
