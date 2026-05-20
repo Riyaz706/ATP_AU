@@ -2,22 +2,29 @@
 
 This repository contains the coursework, assignments, and projects completed during the Advanced Training Program. It showcases a learning progression from core JavaScript fundamentals to building complex full-stack web applications.
 
+For focused technical details, directory listings, schemas, and routes, check the dedicated sub-project README documents:
+
+- **[Frontend Projects Documentation (README-frontend.md)](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/README-frontend.md)**
+- **[Backend Services Documentation (README-backend.md)](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/README-backend.md)**
+
+---
+
 ## Repository Structure
 
 The repository is organized by week and project category. Each directory contains dedicated source code and documentation.
 
-| Directory | Description |
-|-----------|-------------|
-| [week-1](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-1) | JavaScript fundamentals, function expressions, arrays, and analytics models. |
-| [week-2](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-2) | Collections, Map/Set structures, shallow vs deep cloning, and basic module design. |
-| [week-3](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-3) | Node.js backend development. Covers both in-memory REST APIs and database-backed services. |
-| [week-6](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-6) | Frontend essentials using semantic HTML, CSS layout techniques, and JavaScript DOM manipulation. |
-| [week-7](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-7) | React fundamentals. Includes projects covering state management, routing, and REST API integration. |
-| [week-8](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-8) | Advanced React patterns, including React Router nesting, custom hooks, and state management. |
-| [Phase1](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/Phase1) | Phase 1 Capstone project focusing on building a product catalog application in React. |
-| [Project](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/Project) | Full-stack blog application with user, author, and administrator roles. |
-| [backend-project](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/backend-project) | Dedicated backend server implementation managing products, users, and shopping cart logic. |
-| [react-demo](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/react-demo) | Sandbox react application demonstrating state hook mutations and array operations. |
+| Directory | Description | Type |
+|-----------|-------------|------|
+| [week-1](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-1) | JavaScript fundamentals, functions, arrays, and analytics models. | Fundamentals |
+| [week-2](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-2) | Collections, Map/Set structures, shallow/deep copies, and modules. | Fundamentals |
+| [week-3](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-3) | Node.js backend development (in-memory and database REST APIs). | Backend |
+| [week-6](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-6) | Frontend essentials using HTML, CSS grid layouts, and DOM manipulation. | Frontend |
+| [week-7](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-7) | React fundamentals (state management, routing, and APIs integration). | Frontend |
+| [week-8](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/week-8) | Advanced React patterns (nested layouts, custom hooks, and Zustand). | Frontend |
+| [Phase1](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/Phase1) | Phase 1 Capstone product catalog React application. | Frontend |
+| [Project](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/Project) | Full-stack blog application with user, author, and admin roles. | Full-Stack |
+| [backend-project](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/backend-project) | Backend server managing products, users, and shopping cart logic. | Backend |
+| [react-demo](file:///Users/mdriyaz/.gemini/antigravity/scratch/ATP_AU/react-demo) | Sandbox react application demonstrating state hook mutations. | Frontend |
 
 ## Tech Stack Overview
 
@@ -41,10 +48,5 @@ To explore or run any project in this repository, proceed with the following ste
    - Ensure Node.js (v18 or higher) is installed on your system.
    - Ensure MongoDB community server is running locally or you have an active MongoDB Atlas URI if running database-backed projects.
 
-3. Execution:
-   Each sub-project or folder is self-contained. Navigate to the specific directory and check its local documentation for package installations and setup steps:
-   ```bash
-   cd week-3/BackendWtihDataBase
-   npm install
-   node server.js
-   ```
+3. Setup & Start:
+   Each sub-project or folder is self-contained. Navigate to the specific directory and check its local documentation for package installations and setup steps.
