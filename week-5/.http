@@ -1,0 +1,28 @@
+###
+POST http://localhost:5001/api/user
+Content-Type: application/json
+
+{
+    "name": "Riyaz",
+    "email": "[EMAIL_ADDRESS]",
+    "dob": "1990-01-01",
+    "mobile": "1234567890"
+}
+
+###
+GET http://localhost:5001/api/user  
+
+###
+PUT http://localhost:5001/api/user/69a6828d652642049e304b76
+Content-Type: application/json
+
+{
+    "name": "Riya",
+    "email": "riyaz@gmail.com",
+    "dob": "1990-01-01",
+    "mobile": "1234567890"
+}
+
+###
+DELETE http://localhost:5001/api/user/69a6828d652642049e304b76
+
